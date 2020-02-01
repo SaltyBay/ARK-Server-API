@@ -228,6 +228,7 @@ struct UObjectBaseUtility : public UObjectBase
 
 struct UObject : UObjectBaseUtility
 {
+	static UClass* GetPrivateStaticClass() { return NativeCall<UClass *>(nullptr, "UObject.GetPrivateStaticClass"); }
 	static UClass* StaticClass() { return NativeCall<UClass*>(nullptr, "UObject.StaticClass"); }
 	void ExecuteUbergraph(int EntryPoint) { NativeCall<void, int>(this, "UObject.ExecuteUbergraph", EntryPoint); }
 	bool AreAllOuterObjectsValid() { return NativeCall<bool>(this, "UObject.AreAllOuterObjectsValid"); }
